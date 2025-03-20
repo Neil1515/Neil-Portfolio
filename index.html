@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
         
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand ms-1" href="#">
+            <a class="navbar-brand ms-1" href="index.html">
              <!--<img src="source/Image/JohnNeilAying.jpg" alt="Logo" class="img-fluid rounded-circle" width="50" height="50">-->
                 My Portfolio
             </a>
@@ -34,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#skills">
                             <i class="fas fa-code"></i> Skills
                         </a>
                     </li>
@@ -59,7 +60,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero section 
+ -->
     <div class="cover-container" id="home">
         <video autoplay loop muted playsinline>
             <source src="source/Vedio/bg.mp4" type="video/mp4">
@@ -85,7 +87,55 @@
             </div>
         </div>
     </div>
+    <div class="cursor-shadow"></div>
 
+    <button id="scrollToTop" class="scroll-top">
+        ▲
+    </button>
+
+    <section class="mainresume-section">
+        <div class="resume-section">
+            <h2>Check My Resume</h2>
+            <p>Want to know more about my experience and skills? Get my latest resume below.</p>
+            <a href="source/myresume/Neil_Resume (2025).pdf" download="JohnNeilAying_Resume.pdf" class="download-btn" target="_blank">
+                <i class="fas fa-file-download"></i> Download Resume
+            </a>
+        </div>
+    </section>
+
+    <section class="skill-section" id="skills" style="padding: 80px 0;">
+        <h2>My Capabilities</h2>
+        <hr>
+        <!-- Skills Grid -->
+        <h3>Technical Skills:</h3>
+        <div class="row">
+            <div class="skills-column">
+             <div class="content">
+                <img src="source/image/development stock.webp" alt="development stock" style="width:100%">
+                <h4>Programming Development</h4>
+              </div>
+            </div>
+            <div class="skills-column">
+              <div class="content">
+              <img src="source/image/database.webp" alt="database" style="width:100%">
+                <h4>Database Support</h4>            
+              </div>
+            </div>
+            <div class="skills-column">
+                <div class="content">
+                <img src="source/image/networking.webp" alt="Network" style="width:100%">
+                  <h4>Network Configure</h4>            
+                </div>
+            </div>
+            <div class="skills-column">
+                <div class="content">
+                <img src="source/image/operating-system-concept.webp" alt="OS" style="width:100%">
+                  <h4>Operating Systems</h4>            
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
 
     <!-- Location Section -->
@@ -138,47 +188,10 @@
         <p class="mb-0">© 2025 John Neil Aying Portfolio.</p>
     </div>
 </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const texts = [
-            "Hi, I'm John Neil Aying",
-            "A Bachelor's Degree Holder in Information Technology",
-            "Passionate About Web Development & Innovation"
-        ];
-        
-        let textIndex = 0;
-        let charIndex = 0;
-        const typingSpeed = 80;
-        const delayBetweenTexts = 5000; // Pause before the next text
-        const h2Element = document.getElementById("typing-text");
 
-        function typeEffect() {
-            if (charIndex < texts[textIndex].length) {
-                h2Element.textContent += texts[textIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(typeEffect, typingSpeed);
-            } else {
-                setTimeout(eraseEffect, delayBetweenTexts);
-            }
-        }
-
-        function eraseEffect() {
-            if (charIndex > 0) {
-                h2Element.textContent = texts[textIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(eraseEffect, typingSpeed / 2);
-            } else {
-                textIndex = (textIndex + 1) % texts.length; // Cycle through texts
-                setTimeout(typeEffect, typingSpeed);
-            }
-        }
-
-        typeEffect();
-    });
-
-    </script>       
+    </script>   
 </body>
 
 </html>

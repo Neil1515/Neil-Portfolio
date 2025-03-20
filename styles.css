@@ -2,11 +2,25 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0px;
     padding-top: 56px; /* Adjust based on navbar height */
-    background-color: #f0f0f0;
+     background-color: #f1f1f1;
     height: 100vh;
-    cursor: url('source/image/cursor.png');
+   
+}
+*{
+    cursor:url("source/image/cursor-plus.png"), auto;
 }
 
+.cursor-shadow {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: rgba(236, 85, 85, 0.7); /* White shadow */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(236, 85, 85, 1); /* Glow effect */
+    pointer-events: none; /* Prevent interaction */
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s linear; /* Smooth movement */
+}
 
 .cover-container {
     position: relative;
@@ -173,6 +187,78 @@ a {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
+
+
+.scroll-top:hover {
+    background: rgba(255, 107, 107, 0.8);
+    transform: scale(1.1);
+}
+.mainresume-section{
+     background: url("source/image/cta-bg.jpg") no-repeat center center/cover;
+     padding: 40px 10px;
+}
+.resume-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0px auto;
+    max-width: 600px;
+}
+
+.resume-section h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.resume-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.download-btn i {
+    margin-right: 8px;
+    font-size: 1.5rem;
+}
+
+.download-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.skill-section {
+    text-align: center;
+    padding: 0px 20px;
+    background: #343a40;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0px auto;
+}
+.skill-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+.skill-section h3 {
+    font-size: 1.7rem;
+    color: #ffffff;
+    text-align: start;
+    padding-left: 20px;
+}
 .map-container {
     padding: 20px;
     text-align: center;
@@ -188,7 +274,63 @@ footer {
     background-color: #343a40;
     color: #ffffff;
 }
-
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 107, 107, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s, transform 0.3s;
+}
+.row {
+    margin: 8px 10px;
+  }
+  
+  /* Add padding BETWEEN each column */
+  .row,
+  .row > .skills-column {
+    padding: 8px 5px;
+  }
+  
+  /* Create four equal columns that floats next to each other */
+  .skills-column {
+    float: left;
+    width: 25%;
+  }
+  
+  /* Clear floats after rows */ 
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Content */
+  .content {
+    background-color: white;
+    padding: 5px;
+  }
+  
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+    .skills-column {
+      width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .skills-column {
+      width: 100%;
+    }
+  }  
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 1.7rem;
@@ -220,6 +362,20 @@ footer {
         overflow-wrap: break-word; /* Additional support for word wrapping */
         min-width: 90%;
         border-right: none;
+    }
+    .scroll-top {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        font-size: 12px;
+    }
+    .cursor-shadow{
+        display: none;
+    }
+}
+@media (max-width: 1024px) {
+    .cursor-shadow{
+        display: none;
     }
 }
 
