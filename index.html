@@ -59,11 +59,12 @@
         </div>
     </nav>
 
-    <!-- Cover Picture Section -->
+    <!-- Hero Section -->
     <div class="cover-container" id="home">
         <video autoplay loop muted playsinline>
             <source src="source/Vedio/bg.mp4" type="video/mp4">
         </video>
+        <h2 class="typing-text" id="typing-text"></h2>
         <div class="owner-details">
             <div class="owner-picture">
                 <img src="source/image/JohnNeilAying.webp" alt="My Picture"> 
@@ -89,7 +90,7 @@
 
     <!-- Location Section -->
     <div class="container my-3" id="map">
-        <h2 class="text-center mb-1" style="text-align: start !important;">My Location</h2>
+        <h2 class="text-center mb-0" style="text-align: start !important;">My Hometown</h2>
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d74134.0600494454!2d123.9202200225953!3d10.308331191282576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a997001436fba1%3A0x2d0b696c1a7425b8!2sKasinto%20Street!5e1!3m2!1sen!2sph!4v1742434288728!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -139,7 +140,45 @@
 </footer>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const texts = [
+            "Hi, I'm John Neil Aying",
+            "A Bachelor's Degree Holder in Information Technology",
+            "Passionate About Web Development & Innovation"
+        ];
         
+        let textIndex = 0;
+        let charIndex = 0;
+        const typingSpeed = 80;
+        const delayBetweenTexts = 5000; // Pause before the next text
+        const h2Element = document.getElementById("typing-text");
+
+        function typeEffect() {
+            if (charIndex < texts[textIndex].length) {
+                h2Element.textContent += texts[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, typingSpeed);
+            } else {
+                setTimeout(eraseEffect, delayBetweenTexts);
+            }
+        }
+
+        function eraseEffect() {
+            if (charIndex > 0) {
+                h2Element.textContent = texts[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseEffect, typingSpeed / 2);
+            } else {
+                textIndex = (textIndex + 1) % texts.length; // Cycle through texts
+                setTimeout(typeEffect, typingSpeed);
+            }
+        }
+
+        typeEffect();
+    });
+
+    </script>       
 </body>
 
 </html>

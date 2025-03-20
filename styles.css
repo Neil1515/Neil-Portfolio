@@ -1,16 +1,21 @@
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin: 0px;
     padding-top: 56px; /* Adjust based on navbar height */
     background-color: #f0f0f0;
     height: 100vh;
+    cursor: url('source/image/cursor.png');
 }
+
 
 .cover-container {
     position: relative;
     width: 100%;
-    height: 300px; /* Adjust the height as needed */
+    height: 300px; /* Adjust height as needed */
     overflow: hidden; /* Prevents overflow issues */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cover-container video {
@@ -23,6 +28,43 @@ body {
     object-fit: cover; /* Ensures the video covers the entire container */
 }
 
+/* Center the H2 in the middle */
+.cover-container .typing-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    z-index: 2; /* Ensures it stays above the video */
+}
+
+.typing-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white; /* Blinking cursor effect */
+    animation: blink 0.8s infinite;
+    
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Owner details position */
 .owner-details {
     position: absolute;
     bottom: 10px; /* Adjust the position from the bottom */
@@ -30,15 +72,17 @@ body {
     display: flex;
     align-items: center;
     color: white; /* Text color for visibility */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
+/* Owner Picture Styling */
 .owner-picture {
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Adjust size as needed */
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border: 3px solid white; /* Optional border */
+    border: 3px solid white;
     overflow: hidden;
-    margin-right: 10px; /* Space between picture and text */
+    margin-right: 10px;
 }
 
 .owner-picture img {
@@ -47,17 +91,19 @@ body {
     object-fit: cover;
 }
 
+/* Owner Info */
 .owner-info {
     display: flex;
     flex-direction: column;
 }
 
 .owner-name {
-    font-size: 1.8rem; /* Adjust text size as needed */
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 0px; /* Space between name and contact info */
+    margin-bottom: 0px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
 
 .owner-socials {
     display: flex;
@@ -73,27 +119,9 @@ body {
 .owner-socials a:hover {
     color: #007bff; /* Icon color on hover */
 }
-
-.map-container {
-    padding: 20px;
-    text-align: center;
-}
-
-.map-container iframe {
-    border: 0;
-    width: 100%;
-    height: 450px;
-    max-width: 100%;
-}
-footer {
-    background-color: #343a40;
-    color: #ffffff;
-}
-
-
 .navbar-brand {
-    font-family: 'Brush Script MT', cursive;
-    font-size: 1.4rem;
+    font-family: 'Brush Script MT', cursive !important;
+    font-size: 1.7rem;
     font-weight: bold;
     color: #bd2727;
     text-decoration: none;
@@ -145,9 +173,27 @@ a {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
+.map-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.map-container iframe {
+    border: 0;
+    width: 100%;
+    height: 450px;
+    max-width: 100%;
+}
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
 @media (max-width: 768px) {
     .navbar-brand {
-        font-size: 1.2rem;
+        font-size: 1.7rem;
+        font-family: 'Brush Script MT', cursive !important;
+        font-weight: bold;
     }
     .owner-name {
         font-size: 1.7rem; /* Adjust text size as needed */
@@ -159,9 +205,21 @@ a {
         width: 100%;
         /*border: 3px solid green; */
         padding: 6px;
-        bottom: 0px; /* Adjust the position from the bottom */
-        left: 0px; /* Adjust the position from the left */
+        bottom: 5px; /* Adjust the position from the bottom */
+        left: 20px; /* Adjust the position from the left */
+        right: 20px;
         align-content: center !important;
+    }
+    .cover-container .typing-text {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        font-size: 1.7rem; /* Adjust font size for better fit */
+        white-space: normal; /* Allow word wrap */
+        word-break: break-word; /* Ensure long words break properly */
+        overflow-wrap: break-word; /* Additional support for word wrapping */
+        min-width: 90%;
+        border-right: none;
     }
 }
 
