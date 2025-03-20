@@ -1,0 +1,167 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-top: 56px; /* Adjust based on navbar height */
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+.cover-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    overflow: hidden; /* Prevents overflow issues */
+}
+
+.cover-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire container */
+}
+
+.owner-details {
+    position: absolute;
+    bottom: 10px; /* Adjust the position from the bottom */
+    left: 10px; /* Adjust the position from the left */
+    display: flex;
+    align-items: center;
+    color: white; /* Text color for visibility */
+}
+
+.owner-picture {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 50%;
+    border: 3px solid white; /* Optional border */
+    overflow: hidden;
+    margin-right: 10px; /* Space between picture and text */
+}
+
+.owner-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.owner-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.owner-name {
+    font-size: 1.8rem; /* Adjust text size as needed */
+    font-weight: bold;
+    margin-bottom: 0px; /* Space between name and contact info */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.owner-socials {
+    display: flex;
+    gap: 10px; /* Space between icons */
+}
+
+.owner-socials a {
+    color: white; /* Icon color */
+    text-decoration: none;
+    font-size: 1.2rem; /* Icon size */
+}
+
+.owner-socials a:hover {
+    color: #007bff; /* Icon color on hover */
+}
+
+.map-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.map-container iframe {
+    border: 0;
+    width: 100%;
+    height: 450px;
+    max-width: 100%;
+}
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+
+.navbar-brand {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #bd2727;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #0056b3;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.nav-link i {
+    margin-right: 5px;
+}
+/* Base styling for all nav items */
+.nav-link {
+    padding: 8px 15px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Professional highlight for "Contact Me" */
+.nav-item:last-child .nav-link {
+    background-color: #007bff; /* Primary Blue */
+    color: white !important;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.2); /* Subtle shadow */
+}
+
+/* Hover effect for a modern touch */
+.nav-item:last-child .nav-link:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+    box-shadow: 0px 6px 12px rgba(0, 86, 179, 0.3);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .owner-name {
+        font-size: 1.7rem; /* Adjust text size as needed */
+        font-weight: bold;
+        margin-bottom: 0px; /* Space between name and contact info */
+    }
+    .owner-details {
+        margin: 0px 0px 0 0px ;
+        width: 100%;
+        /*border: 3px solid green; */
+        padding: 6px;
+        bottom: 0px; /* Adjust the position from the bottom */
+        left: 0px; /* Adjust the position from the left */
+        align-content: center !important;
+    }
+}
+
