@@ -103,12 +103,14 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 2;
 }
 
 /* Owner Info */
 .owner-info {
     display: flex;
     flex-direction: column;
+    z-index: 2;
 }
 
 .owner-name {
@@ -116,6 +118,59 @@ body {
     font-weight: bold;
     margin-bottom: 0px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    position: relative; /* Ensures popup positions relative to this */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 10; /* Ensures it's above other sections */
+}
+
+.verified {
+    color: #1877F2; /* Facebook blue */
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 11; /* Ensures it's clickable */
+}
+
+/* Tooltip Popup */
+.verified-popup {
+    display: none;
+    position: absolute;
+    top: 85%; /* Position below the badge */
+    left: 40%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 99999 !important; /* Ensures it's on top of everything */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+/* Tooltip Arrow */
+.verified-popup::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+/* Show popup when hovering */
+.verified:hover + .verified-popup {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -136,7 +191,7 @@ body {
 .navbar-brand {
     font-family: 'Brush Script MT', cursive !important;
     font-size: 1.7rem;
-    font-weight: bold;
+    font-weight: 500px;
     color: #bd2727;
     text-decoration: none;
 }
@@ -187,15 +242,48 @@ a {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
-
-
 .scroll-top:hover {
     background: rgba(255, 107, 107, 0.8);
     transform: scale(1.1);
 }
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Prevents interaction */
+    z-index: 1; /* Keeps it in the background */
+}
+
+.icon {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: moveIcon 5s linear infinite;
+    opacity: 0;
+}
+
+@keyframes moveIcon {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
 .mainresume-section{
      background: url("source/image/cta-bg.jpg") no-repeat center center/cover;
      padding: 40px 10px;
+     position: relative;
+     z-index: 1; /* Keep it behind verified badge */
 }
 .resume-section {
     text-align: center;
@@ -240,6 +328,7 @@ a {
 .download-btn:hover {
     background: #0056b3;
     transform: scale(1.05);
+    color: white;
 }
 
 .skill-section {
@@ -262,6 +351,9 @@ a {
 .map-container {
     padding: 20px;
     text-align: center;
+    position: relative;
+    z-index: 2;
+    
 }
 
 .map-container iframe {
@@ -269,6 +361,7 @@ a {
     width: 100%;
     height: 450px;
     max-width: 100%;
+
 }
 footer {
     background-color: #343a40;
@@ -303,6 +396,7 @@ footer {
   .skills-column {
     float: left;
     width: 25%;
+    z-index: 2;
   }
   
   /* Clear floats after rows */ 
@@ -317,7 +411,6 @@ footer {
     background-color: white;
     padding: 5px;
   }
-  
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 900px) {
     .skills-column {
@@ -348,8 +441,8 @@ footer {
         /*border: 3px solid green; */
         padding: 6px;
         bottom: 5px; /* Adjust the position from the bottom */
-        left: 20px; /* Adjust the position from the left */
-        right: 20px;
+        left: 5px; /* Adjust the position from the left */
+        right: 5px;
         align-content: center !important;
     }
     .cover-container .typing-text {

@@ -61,5 +61,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     
+    document.addEventListener("DOMContentLoaded", function() {
+        const badge = document.getElementById("verified-badge");
+        const popup = document.getElementById("verified-popup");
+    
+        badge.addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevents immediate closing when clicking the badge
+            popup.classList.toggle("active");
+        });
+    
+        document.addEventListener("click", function(event) {
+            if (!popup.contains(event.target) && event.target !== badge) {
+                popup.classList.remove("active");
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const bg = document.querySelector(".animated-bg");
+        const maxIcons = 3; // Limit the number of icons at a time
+    
+        setInterval(() => {
+            if (bg.children.length < maxIcons) { // Check if within limit
+                const icon = document.createElement("i");
+                icon.className = "fas fa-code icon";
+                Object.assign(icon.style, {
+                    left: `${Math.random() * 100}vw`,
+                    top: "100vh",
+                    animationDuration: `${Math.random() * 3 + 3}s`
+                });
+                bg.appendChild(icon);
+                setTimeout(() => icon.remove(), parseFloat(icon.style.animationDuration) * 1000);
+            }
+        }, 500);
+    });
+    
+    
+    
+    
+    
 
  
