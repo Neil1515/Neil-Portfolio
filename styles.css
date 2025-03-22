@@ -10,6 +10,11 @@ body {
     cursor:url("source/image/cursor-plus.png"), auto;
 }
 
+#bg-video {
+    z-index: -1; /* Keeps it in the background */
+}
+
+
 .cursor-shadow {
     position: fixed;
     width: 20px;
@@ -97,6 +102,7 @@ body {
     border: 3px solid white;
     overflow: hidden;
     margin-right: 10px;
+    z-index: 2;
 }
 
 .owner-picture img {
@@ -246,6 +252,22 @@ a {
     background: rgba(255, 107, 107, 0.8);
     transform: scale(1.1);
 }
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 107, 107, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 3;
+}
 .animated-bg {
     position: fixed;
     top: 0;
@@ -333,27 +355,75 @@ a {
 
 .skill-section {
     text-align: center;
-    padding: 0px 20px;
+    padding: 80px 0px;
     background: #343a40;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0px auto;
+    margin: 0 auto;
 }
-.skill-section h2 {
-    font-size: 2rem;
+
+.skill-section h2, .skill-section h3 {
     color: #ffffff;
 }
+
 .skill-section h3 {
-    font-size: 1.7rem;
-    color: #ffffff;
     text-align: start;
     padding-left: 20px;
 }
+
+.skills_content h4{
+    padding-top: 6px;
+}
+
+.swiper {
+    width: 90%;
+    padding-top: 0px;
+}
+
+.swiper-slide {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.01);
+}
+
+.swiper-slide img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #ffffff;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ffffff;
+
+}
+.swiper-pagination {
+    padding-top: 50px;
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: 30px;
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+}
+
+
 .map-container {
     padding: 20px;
     text-align: center;
     position: relative;
     z-index: 2;
-    
 }
 
 .map-container iframe {
@@ -367,63 +437,8 @@ footer {
     background-color: #343a40;
     color: #ffffff;
 }
-.scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255, 107, 107, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    display: none; /* Initially hidden */
-    transition: opacity 0.3s, transform 0.3s;
-}
-.row {
-    margin: 8px 10px;
-  }
+
   
-  /* Add padding BETWEEN each column */
-  .row,
-  .row > .skills-column {
-    padding: 8px 5px;
-  }
-  
-  /* Create four equal columns that floats next to each other */
-  .skills-column {
-    float: left;
-    width: 25%;
-    z-index: 2;
-  }
-  
-  /* Clear floats after rows */ 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Content */
-  .content {
-    background-color: white;
-    padding: 5px;
-  }
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 900px) {
-    .skills-column {
-      width: 50%;
-    }
-  }
-  
-  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .skills-column {
-      width: 100%;
-    }
-  }  
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 1.7rem;
@@ -464,6 +479,15 @@ footer {
     }
     .cursor-shadow{
         display: none;
+    }
+    .skill-section h2{
+        font-size: 1.2rem;
+    }
+    .skill-section h3{
+        font-size: 1.1rem;
+    }
+    .skills_content h4{
+        font-size: 0.8rem;
     }
 }
 @media (max-width: 1024px) {

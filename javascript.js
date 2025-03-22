@@ -3,7 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const texts = [
         "Hi, I'm John Neil Aying",
         "A Bachelor's Degree Holder in Information Technology",
-        "Passionate About Web Development & Innovation"
+        "Welcome to My Personal Portfolio!",
+        "Passionate About Web Development & Innovation",
+        "Always Learning, Always Growing",
+        "Design. Develop. Deploy. Repeat.",
+        "Committed to Continuous Learning & Improvement",
+        "Let's Build Something Amazing Together!"
+    
     ];
     
     let textIndex = 0;
@@ -95,6 +101,46 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }, 500);
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById("bg-video");
+    
+        video.addEventListener("timeupdate", () => {
+            if (video.currentTime >= video.duration - 0.1) { 
+                video.currentTime = 0;
+                video.play();
+            }
+        });
+    });
+    
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1.5,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2.5,
+                spaceBetween: 15,
+            },
+            1024: {
+                slidesPerView: 3.5,
+                spaceBetween: 20,
+            },
+        }
+    });
+    
     
     
     
