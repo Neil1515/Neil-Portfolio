@@ -1,9 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const texts = [
+        "Welcome to My Personal Portfolio!",
         "Hi, I'm John Neil Aying",
         "A Bachelor's Degree Holder in Information Technology",
-        "Welcome to My Personal Portfolio!",
         "Passionate About Web Development & Innovation",
         "Always Learning, Always Growing",
         "Design. Develop. Deploy. Repeat.",
