@@ -9,7 +9,10 @@ body {
 *{
     cursor:url("source/image/cursor-plus.png"), auto;
 }
-
+p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
 #bg-video {
     z-index: -1; /* Keeps it in the background */
 }
@@ -439,7 +442,9 @@ a {
 .qualification-section h1 {
     text-align: center;
   }
-  
+.qualification-picture{
+    color: white;
+}
 .qualification-container ul{
     --col-gap: 2rem;
     --row-gap: 2rem;
@@ -451,6 +456,7 @@ a {
     list-style: none;
     width: min(90rem, 90%);
     margin-inline: auto;
+    text-align: center;
 }
   
   /* line */
@@ -675,6 +681,10 @@ footer {
     }
     .qualification-container ul{
         width: min(90rem, 100%);
+        --col-gap: 1rem;
+    }
+    .qualification-text{
+        font-size: 0.8rem;
     }
 }
 @media (max-width: 1024px) {
